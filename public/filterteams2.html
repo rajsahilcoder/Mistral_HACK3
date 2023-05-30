@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.2/semantic.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.5.2/animate.min.css">
+    <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Serif:400,500,500i,700|Pacifico|Wendy+One"
+      rel="stylesheet">
+  <!-- Font Awesome: https://fontawesome.com/icons?d=gallery&m=free -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
+
+  <!-- My CSS -->
+  <link href="https://fonts.googleapis.com/css?family=Holtwood+One+SC&display=swap" rel="stylesheet">
+
+  <link rel="icon" href="images/goalie.png" />
+
+  <link rel="stylesheet" type="text/css" href="css/site.css" />
+
+  <title>Hockey</title>
+</head>
+
+<body>
+  <!-- Nav Bar Section -->
+  <div class="header">
+    <div class="ui secondary  menu ">
+      <div class="ui container">
+        <div class="ui item logo">
+          <a href="/"><i class="hockey puck icon"></i>Hockey</a>
+        </div>
+        
+      </div>
+    </div>
+    <main>
+
+      <!-- Division and/or Gender Filter Section -->
+      <section class="container-fluid">
+        <h2 class="col-12 text-center font-weight-bold" id="subtitles">Team Filter</h2>
+        <hr>
+        <div class="form-row d-flex justify-content-center">
+          <div class="form-group">
+            <!-- Division and/or Gender Filter Fieldset -->
+            <fieldset id="filterSet">
+              <legend id="filterLegend" class="w-50 border border-dark mx-auto text-center" style="background-color:#33475b">Filter by Division
+                and/or Gender</legend>
+              <label id="selectDivLabel" for="selectDivision" class="allLabels mr-3">Select Division:</label>
+              <!-- Hockey Divisions (dynamically generated) -->
+              <select id="selectDivision" autofocus>
+                <option value="All" selected>All Divisions</option>
+              </select>
+              <label id="selectGenLabel" for="selectGender" class="allLabels ml-3 mr-3">Select Team
+                Gender:</label>
+              <select id="selectGender">
+                <option value="All" selected>All Genders</option>
+                <option value="Male">Male Only</option>
+                <option value="Female">Female Only</option>
+                <option value="Any">Coed</option>
+              </select>
+            </fieldset>
+          </div>
+        </div>
+  
+        <!-- Add Team and Back Buttons -->
+        <div class="form-group text-center pt-2">
+  
+          <button type="button" id="backBtn" class="col-sm-2 btn btn-primary btn-md mb-1">Back</button>
+        </div>
+        <hr>
+      </section>
+  
+      <!-- Display Teams Table Section -->
+      <section class="container-fluid d-flex justify-content-center">
+        <table id="teams" class="tables table-striped table-bordered col-md-6">
+        </table>
+      </section>
+  
+      <!-- Modal Delete Team Section -->
+      <div class="modal fade container-fluid" id="deleteTeamModal" tabindex="-1" role="dialog"
+        aria-labelledby="deleteTeamModalText" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <p class="modal-title" id="deleteTeamModalText"></p>
+            </div>
+            <div id="deleteModalBody" class="modal-body text-center">
+            </div>
+            <!-- Modal Delete Team Buttons -->
+            <div class="modal-footer justify-content-center">
+              <button id="confirmBtn" type="button" class="btn btn-success" data-dismiss="modal">Confirm</button>
+              <button id="cancelBtn" type="button" class="btn btn-primary" data-dismiss="modal">Cancel</button>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      <!-- Modal Save Section -->
+      <div class="modal fade container-fluid" id="savedModal" tabindex="-1" role="dialog" aria-labelledby="savedModalText"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <div id="savedModalText" class="modal-body text-center">
+              </div>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+    </main>
+  </div>
+  
+  <div style="height: 60vh;">
+
+  </div>
+  <!-- Footer Section -->
+  <footer class="container-fluid">
+    <hr>
+    <div class="row">
+      <div class="col" id="copyright">
+        &copy; Hockey, Inc. 1973
+      </div>
+      <div class="col text-right" id="imagescredit">
+        Images provide by <a href="https://www.wikipedia.org/" target="_blank">Wikipedia</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+
+  <script src="scripts/filterteams2.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,22 @@
+[
+	{
+		"Name": "Ranger",
+		"Code": "Pro-Am",
+		"Description": "JR Bruins: 3  || Eastern Falcons: 0 "
+	},
+	{
+		"Name": "NHL",
+		"Code": "Elite",
+		"Description": "Islanders: 2 || Blue Devils: 3"
+	},
+	{
+		"Name": "MSCN",
+		"Code": "Minor",
+		"Description": "Green Dragons: 5 || Lady Gulls: 2"
+    },
+    {
+		"Name": "Recreate",
+		"Code": "Recreational",
+		"Description": "Vipers: 3 || Raj: 5"
+	}
+]
